@@ -32,7 +32,7 @@
     <!-- ✅ Build section -->
     <build>
         <plugins>
-            <!-- Java compiler plugin -->
+            <!-- ✅ Java Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -44,13 +44,29 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ Surefire plugin for running tests -->
+            <!-- ✅ Surefire Plugin for Unit Testing -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
                     <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+
+            <!-- ✅ Maven JAR Plugin (adds Main-Class to Manifest) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Add classpath and specify main class -->
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.example.App</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
