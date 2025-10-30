@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/harisai2005/maven-demo.git'
+                git branch: 'main', url: 'https://github.com/harisai2005/maven-demo.git'
             }
         }
 
